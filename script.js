@@ -5,9 +5,7 @@ console.log("script.js loaded successfully!");
 const contactForm = document.getElementById('contact-form');
 
 // Add a submit event listener to the form
-contactForm.addEventListener('submit', function(event) {
-    // Prevent the default form submission behavior
-    event.preventDefault();
+
 
     // In a real application, you would send the form data to a backend here.
     // Since this is a static site, we will just show a confirmation message.
