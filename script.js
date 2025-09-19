@@ -5,9 +5,7 @@ console.log("script.js loaded successfully!");
 const contactForm = document.getElementById('contact-form');
 
 // Add a submit event listener to the form
-contactForm.addEventListener('submit', function(event) {
-    // Prevent the default form submission behavior
-    event.preventDefault();
+
 
     // In a real application, you would send the form data to a backend here.
     // Since this is a static site, we will just show a confirmation message.
@@ -17,13 +15,7 @@ contactForm.addEventListener('submit', function(event) {
     const userName = nameInput.value;
     
     // Create a simple custom confirmation message
-    const confirmationMessage = document.createElement('div');
-    confirmationMessage.classList.add('bg-green-100', 'border', 'border-green-400', 'text-green-700', 'px-4', 'py-3', 'rounded', 'relative', 'mt-4');
-    confirmationMessage.setAttribute('role', 'alert');
-    confirmationMessage.innerHTML = `
-        <strong class="font-bold">Thank you, ${userName}!</strong>
-        <span class="block sm:inline">Your message has been received. I will get back to you shortly.</span>
-    `;
+   
 
     // Append the message to the form container
     contactForm.parentNode.insertBefore(confirmationMessage, contactForm.nextSibling);

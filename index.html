@@ -10,8 +10,71 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Link to your external CSS file -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem; /* Equivalent to rounded-xl in Tailwind */
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 0.75rem;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 0.75rem;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb; /* gray-200 */
+            background-color: #f9fafb; /* gray-50 */
+            color: #1f2937; /* gray-800 */
+        }
+        form button {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background-color: #1f2937; /* gray-900 */
+            color: white;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #374151; /* gray-700 */
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -32,10 +95,10 @@
     <section class="bg-gradient-to-r from-gray-100 to-gray-200 py-24 text-center">
         <div class="container mx-auto px-4">
             <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-                Masterful Human Portraits <br class="hidden sm:inline"> Crafted with Soul
+               Personalized Portrait Sketches <br class="hidden sm:inline">for a Lasting Keepsake 
             </h1>
             <p class="mt-4 text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
-                Capturing the essence of a person, one stroke at a time.
+                Perfect gift for you and your loved ones.
             </p>
             <a href="#commissions" class="mt-8 inline-block bg-gray-900 text-white text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-gray-700 transition-transform duration-200 hover:scale-105">
                 Commission a Portrait
@@ -106,16 +169,16 @@
                         </p>
                         <ul class="space-y-4">
                             <li class="flex justify-between items-center bg-gray-50 p-4 rounded-md">
-                                <span class="text-lg font-medium">8" x 10" (Single Subject)</span>
-                                <span class="text-lg font-semibold text-gray-900">₹16,500 INR</span>
-                            </li>
-                            <li class="flex justify-between items-center bg-gray-50 p-4 rounded-md">
                                 <span class="text-lg font-medium">11" x 14" (Single Subject)</span>
-                                <span class="text-lg font-semibold text-gray-900">₹29,000 INR</span>
+                                <span class="text-lg font-semibold text-gray-900">₹300 INR</span>
                             </li>
                             <li class="flex justify-between items-center bg-gray-50 p-4 rounded-md">
-                                <span class="text-lg font-medium">16" x 20" (Two Subjects)</span>
-                                <span class="text-lg font-semibold text-gray-900">₹41,500 INR</span>
+                                <span class="text-lg font-medium">14" x 11" (Landscape)</span>
+                                <span class="text-lg font-semibold text-gray-900">₹350 INR</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-gray-50 p-4 rounded-md">
+                                <span class="text-lg font-medium">A3-size (Two Subjects)</span>
+                                <span class="text-lg font-semibold text-gray-900">₹500 INR</span>
                             </li>
                         </ul>
                         <p class="mt-4 text-sm text-gray-500 italic">
@@ -126,17 +189,17 @@
                     <div>
                         <h3 class="text-2xl font-semibold text-gray-900 mb-4">The Process</h3>
                         <ol class="space-y-6 list-decimal list-inside text-gray-600">
+                           <li>
+                                 <b>Initial Inquiry:</b> Fill out the contact form below with your request. Please include your desired size .
+                           </li>
                             <li>
-                                **Initial Inquiry:** Fill out the contact form below with your request. Please include your reference photo and desired size.
+                                <b>Quote & Agreement:</b> I will review your request and send a detailed quote and timeline.
                             </li>
                             <li>
-                                **Quote & Agreement:** I will review your request and send a detailed quote and timeline. A 50% deposit is required to begin the work.
+                                <b>Sketching & Approval:</b> I'll begin the sketch and send you progress photos for your feedback and approval before finalization.
                             </li>
                             <li>
-                                **Sketching & Approval:** I'll begin the sketch and send you progress photos for your feedback and approval before finalization.
-                            </li>
-                            <li>
-                                **Completion & Delivery:** Once complete, I'll send a final photo. After the remaining payment, the artwork will be carefully packaged and shipped to you.
+                                <b>Completion & Delivery:</b> Once complete, I'll send a final photo. After the remaining payment, the artwork will be carefully packaged and shipped to you.
                             </li>
                         </ol>
                     </div>
@@ -162,39 +225,49 @@
             <p class="text-center text-lg mb-10 text-gray-400">
                 Ready to commission your own portrait? Send me a message!
             </p>
-            <!-- IMPORTANT: You must replace 'youruniqueid' with your actual Formspree endpoint URL. -->
-            <form id="contact-form" class="space-y-6" action="https://formspree.io/f/xwpngkbo" method="POST">
+            <!-- Formspree provides a free backend for static forms. Replace 'youruniqueid' with your actual Formspree endpoint. -->
+
+            <form id="contact-form" action="https://formspree.io/f/mgvlgkkr" method="POST" class="space-y-6">
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-200 mb-2">Name</label>
-                    <input type="text" id="name" name="name" required class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                    <label for="name" class="text-lg font-medium">Name</label>
+                    <input type="text" id="name" name="name" class="w-full mt-2 p-3 rounded-lg border border-gray-700 bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-colors duration-200" placeholder="Your Name">
                 </div>
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-200 mb-2">Email</label>
-                    <input type="email" id="email" name="email" required class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                    <label for="email" class="text-lg font-medium">Email</label>
+                    <input type="email" id="email" name="email" class="w-full mt-2 p-3 rounded-lg border border-gray-700 bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-colors duration-200" placeholder="your.email@example.com">
                 </div>
                 <div>
-                    <label for="message" class="block text-sm font-medium text-gray-200 mb-2">Message / Commission Details</label>
-                    <textarea id="message" name="message" rows="5" required class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"></textarea>
+                    <label for="message" class="text-lg font-medium">Message / Commission Details</label>
+                    <textarea id="message" name="message" rows="5" class="w-full mt-2 p-3 rounded-lg border border-gray-700 bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-colors duration-200" placeholder="Tell me about your project..."></textarea>
                 </div>
-                <button type="submit" class="w-full bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                <button type="submit" class="w-full py-3 rounded-lg font-bold bg-white text-gray-900 hover:bg-gray-200 transition-colors duration-200">
                     Send Inquiry
                 </button>
             </form>
+
+            <div class="mt-12 text-center">
+                <p class="text-lg font-semibold text-gray-300">Follow My Work</p>
+                <div class="mt-4 flex justify-center space-x-6">
+                    <a href="https://www.instagram.com/geeteshs.art.book/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <span class="text-xl font-medium">Instagram</span>
+                    </a>
+                    <a href="https://www.youtube.com/@geeteshs.art.book." target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <span class="text-xl font-medium">YouTube</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-gray-400 py-8 text-center">
         <div class="container mx-auto px-4">
-            <p>&copy; 2023 Geetesh's Art Book. All rights reserved.</p>
+            <p>&copy; 2025 Geetesh's Art Book. All rights reserved.</p>
             <p class="mt-2 text-sm">
                 Designed and crafted with love.
             </p>
         </div>
     </footer>
-
-    <!-- Link to your external JavaScript file -->
-    <script src="script.js"></script>
 
 </body>
 </html>
